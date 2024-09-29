@@ -9,7 +9,7 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-gray-100">
-        <header className="bg-purple-500 p-4 text-Black text-center">
+        <header className="bg-purple-500 p-4 text-black text-center"> {/* Corrected 'text-Black' to 'text-black' */}
           <h1 className="text-3xl font-bold">Imaanify</h1>
           <p className="text-lg">Connecting Muslims Worldwide</p>
           <nav className="mt-4">
