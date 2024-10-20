@@ -3,7 +3,7 @@ import React from 'react';
 
 const Services = () => {
   return (
-    <div className="max-w-4xl mx-auto p-4">
+    <div className="max-w-4xl mx-auto p-4 w-screen h-screen">
       <h2 className="text-4xl font-bold text-center my-8 text-black">Our Services</h2>
       <p className="text-lg text-black mb-4">
         At Imaanify, we offer a range of services designed to connect and support our community.
