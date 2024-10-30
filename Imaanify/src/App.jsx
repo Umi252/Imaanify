@@ -1,39 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import AboutUs from "./components/AboutUs";
-import Services from "./components/Services";
-import Contact from "./components/Contact";
-import Home from "./components/Home"; 
+import Navbar from "./components/Navbar";
+import Home from "./Pages/Home";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-gray-100">
-        <header className="bg-purple-500 p-4 text-black text-center"> {/* Corrected 'text-Black' to 'text-black' */}
-          <h1 className="text-3xl font-bold">Imaanify</h1>
-          <p className="text-lg">Connecting Muslims Worldwide</p>
-          <nav className="mt-4">
-            <Link className="mx-2 text-black hover:underline" to="/">Home</Link>
-            <Link className="mx-2 text-black hover:underline" to="/about">About Us</Link>
-            <Link className="mx-2 text-black hover:underline" to="/services">Services</Link>
-            <Link className="mx-2 text-black hover:underline" to="/contact">Contact</Link>
-          </nav>
-        </header>
-
-        <main className="flex-grow p-8"> {/* Main content will grow to fill available space */}
+    <div className="min-h-screen bg-gray-100">
+      
+      <Router>
+        <Navbar />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
+              <Route path="/" element={<Home />} />
           </Routes>
-        </main>
-
-        <footer className="bg-blue-500 p-4 text-black text-center">
-          <p>&copy; 2024 Imaanify. All rights reserved.</p>
-        </footer>
-      </div>
-    </Router>
+        <Footer />
+       </Router>
+     </div>
   );
 }
 

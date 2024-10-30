@@ -4,14 +4,12 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav className="bg-purple-500 p-4 text-white">
-      <div className="flex justify-around">
-        <Link to="/" className="hover:text-blue-200">Home</Link>
-        <Link to="/about" className="hover:text-blue-200">About Us</Link>
-        <Link to="/services" className="hover:text-blue-200">Services</Link>
-        <Link to="/contact" className="hover:text-blue-200">Contact</Link>
-      </div>
-    </nav>
+    <header className="  pt-10 text-black text-center"> {/* Corrected 'text-Black' to 'text-black' */}
+      <h1 className="text-3xl font-bold">Imaanify</h1>
+      <p className="text-lg mt-8">Connecting Muslims Worldwide</p>
+      <nav className="mt-4">
+      </nav>
+   </header>  
   );
 };
 
