@@ -51,7 +51,7 @@ const Home = () => {
       </div>
 
       {/* Additional Sections */}
-      <div className="p-8 bg-gray-100 text-black">
+      <div className=" text-center p-8 bg-gray-100 text-black">
         <h2 className="text-4xl font-bold mb-4">Our Services</h2>
         <p className="text-lg mb-6">
           At Imaanify, we offer a range of services designed to connect and support our community.
@@ -63,7 +63,7 @@ const Home = () => {
         </ul>
       </div>
 
-      <div className="p-8 bg-gray-100 text-black">
+      <div className=" items-center text-center p-8 bg-gray-100 text-black">
         <h2 className="text-4xl font-bold mb-4">Contact Us</h2>
         <p className="text-lg mb-4">
           Have questions or suggestions? We'd love to hear from you!
