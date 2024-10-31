@@ -1,30 +1,29 @@
 import React from 'react';
+import { useInView } from 'react-intersection-observer';
 import videoSrc from '../assets/vi.mp4';
-import videoSrc2 from '../assets/ContactBg.mp4'
-import favivon from '../assets/Imaanify.png'
+import videoSrc2 from '../assets/ContactBg.mp4';
+import favivon from '../assets/Imaanify.png';
 
 const Home = () => {
-  return (
-    <div className="relative min-h-screen font-sans"> {/* Consistent font family */}
-      {/* Hero Section with Video Background */}
+  const [heroRef, heroInView] = useInView({ triggerOnce: true });
+  const [aboutRef, aboutInView] = useInView({ triggerOnce: true });
+  const [servicesRef, servicesInView] = useInView({ triggerOnce: true });
+  const [contactRef, contactInView] = useInView({ triggerOnce: true });
 
+  return (
+    <div className="relative min-h-screen font-sans scroll-smooth">
       <div className="flex justify-between items-center p-4 bg-blue-300 text-black text-center">
-        {/* Logo Placeholder */}
-        <div className=" tracking-wide">
+        <div className="tracking-wide">
           <img src={favivon} alt="Logo" className="h-20 w-auto mr-2" />
         </div>
-
-        {/* Navigation Links */}
         <nav className="space-x-4">
           <a href="#about" className="hover:underline font-semibold">About Us</a>
           <a href="#services" className="hover:underline font-semibold">Our Services</a>
           <a href="#contact" className="hover:underline font-semibold">Contact Us</a>
         </nav>
       </div>
-      
-      <div className="relative h-screen overflow-hidden"> {/* Full viewport height section */}
-        
-        {/* Video Background */}
+
+      <div className="relative h-screen overflow-hidden">
         <video
           src={videoSrc}
           autoPlay
@@ -39,21 +38,16 @@ const Home = () => {
             objectFit: 'cover',
           }}
         />
-
-        {/* Hero Content */}
-        <div className="relative z-10 flex flex-col items-center text-white text-center py-24 px-4">
+        <div ref={heroRef} className={`relative z-10 flex flex-col items-center text-white text-center py-24 px-4 ${heroInView ? 'animate-fade-in-up' : ''}`}>
           <h2 className="text-4xl font-bold mb-4 mt-20 tracking-wider">Welcome to Imaanify</h2>
-          <p className="text-xl mb-6 font-light">
-            Join our community and connect with Muslims globally.
-          </p>
+          <p className="text-xl mb-6 font-light">Join our community and connect with Muslims globally.</p>
           <button className="mt-20 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition font-semibold">
             Get Started
           </button>
         </div>
       </div>
 
-      {/* About Us Section - Below the Video Background */}
-      <div id='about' className="bg-custom-background p-8 text-white">
+      <div id="about" ref={aboutRef} className={`bg-custom-background p-8 text-white ${aboutInView ? 'animate-fade-in-up' : ''}`}>
         <h2 className="text-center text-4xl font-bold mb-4 tracking-wide">About Us</h2>
         <p className="text-center text-xl mb-6 font-light leading-relaxed">
           At Imaanify, our mission is to connect Muslims around the world. We believe in fostering community, sharing knowledge, and supporting each other in our faith journeys. Our platform is designed to be a welcoming space for all, offering tools and resources that empower individuals to engage with their community.
@@ -64,25 +58,24 @@ const Home = () => {
           <li className="mb-2">Inclusivity: Welcoming individuals from all backgrounds and experiences.</li>
           <li className="mb-2">Empowerment: Providing resources and tools for personal growth and connection.</li>
         </ul>
-
-        <div id='services' className="text-center p-8">
-          <h2 className="text-4xl font-bold mb-4 tracking-wide">Our Services</h2>
-          <p className="text-lg mb-6 font-light leading-relaxed">
-            At Imaanify, we offer a range of services designed to connect and support our community.
-          </p>
-          <ul className="list-disc list-inside mb-4 font-light text-lg">
-            <li className="mb-2">Community Networking: Connect with fellow Muslims.</li>
-            <li className="mb-2">Events and Workshops: Participate in community events.</li>
-            <li className="mb-2">Resource Sharing: Access educational materials and resources.</li>
-          </ul>
-        </div>
+        <div id="services" ref={servicesRef} className={`text-center p-8 ${servicesInView ? 'animate-fade-in-up' : ''}`}>
+        <h2 className="text-4xl font-bold mb-4 tracking-wide">Our Services</h2>
+        <p className="text-lg mb-6 font-light leading-relaxed">
+          At Imaanify, we offer a range of services designed to connect and support our community.
+        </p>
+        <ul className="list-disc list-inside mb-4 font-light text-lg">
+          <li className="mb-2">Community Networking: Connect with fellow Muslims.</li>
+          <li className="mb-2">Events and Workshops: Participate in community events.</li>
+          <li className="mb-2">Resource Sharing: Access educational materials and resources.</li>
+        </ul>
+      </div>
       </div>
 
-      {/* Contact Us Section with Video Background */}
-      <div id="contact" className="relative h-screen items-center text-center text-white p-8 overflow-hidden">
-        {/* Video Background */}
+      
+
+      <div id="contact" ref={contactRef} className={`relative h-screen items-center text-center text-white p-8 overflow-hidden ${contactInView ? 'animate-fade-in-up' : ''}`}>
         <video
-          src={videoSrc2} // Contact Us background video
+          src={videoSrc2}
           autoPlay
           loop
           muted
@@ -95,13 +88,9 @@ const Home = () => {
             objectFit: 'cover',
           }}
         />
-
-        {/* Contact Us Content */}
         <div className="relative z-10">
           <h2 className="text-4xl font-bold mb-4 tracking-wide">Contact Us</h2>
-          <p className="text-lg mb-4 font-light leading-relaxed">
-            Have questions or suggestions? We'd love to hear from you!
-          </p>
+          <p className="text-lg mb-4 font-light leading-relaxed">Have questions or suggestions? We'd love to hear from you!</p>
           <form className="bg-black p-4 rounded shadow-md max-w-md mx-auto">
             <div className="mb-4">
               <label className="block mb-2 text-white font-semibold" htmlFor="name">Name:</label>
