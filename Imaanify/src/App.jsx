@@ -4,12 +4,13 @@ import Navbar from "./components/Navbar";
 import Home from "./Pages/Home";
 import Footer from "./components/Footer";
 
+
 function App() {
   return (
     <div className="min-h-screen bg-gray-100">
       
       <Router>
-        <Navbar />
+        
           <Routes>
               <Route path="/" element={<Home />} />
           </Routes>
