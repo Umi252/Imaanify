@@ -12,16 +12,16 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Instagram"
-          className="hover:text-pink-500 transition-colors"
+          className="hover:text-pink-500 transition-colors" // Instagram brand color
         >
           <FontAwesomeIcon icon={faInstagram} size="2x" />
         </a>
         <a
-          href="https://www.facebook.com/imaanify/"
+          href="https://m.facebook.com/61565642527637/"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Facebook"
-          className="hover:text-blue-500 transition-colors"
+          className="hover:text-blue-500 transition-colors" // Facebook brand color
         >
           <FontAwesomeIcon icon={faFacebook} size="2x" />
         </a>
@@ -30,7 +30,7 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp"
-          className="hover:text-green-500 transition-colors"
+          className="hover:text-green-500 transition-colors" // WhatsApp brand color
         >
           <FontAwesomeIcon icon={faWhatsapp} size="2x" />
         </a>

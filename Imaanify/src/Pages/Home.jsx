@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+import ChatBot from 'react-simple-chatbot';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faComments } from '@fortawesome/free-solid-svg-icons'; // Import the chat icon
 import videoSrc from '../assets/vi.mp4';
 import videoSrc2 from '../assets/ContactBg.mp4';
 import favivon from '../assets/Imaanify.png';
@@ -10,10 +13,59 @@ const Home = () => {
   const [servicesRef, servicesInView] = useInView({ triggerOnce: true });
   const [contactRef, contactInView] = useInView({ triggerOnce: true });
 
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
+  const [isChatBotOpen, setIsChatBotOpen] = useState(false); // Chatbot state
+  const [userResponse, setUserResponse] = useState(""); // Store user input for dynamic responses
+
+  const steps = [
+    {
+      id: '1',
+      message: 'Welcome to Imaanify! How can I help you today?',
+      trigger: 'options',
+    },
+    {
+      id: 'options',
+      options: [
+        { value: 'about', label: 'Tell me about Imaanify', trigger: 'aboutResponse' },
+        { value: 'services', label: 'What services do you offer?', trigger: 'servicesResponse' },
+        { value: 'contact', label: 'How can I contact you?', trigger: 'contactResponse' },
+        { value: 'close', label: 'Close Chatbot', trigger: 'closeChat' },
+      ],
+    },
+    {
+      id: 'aboutResponse',
+      message: 'Imaanify is a platform connecting Muslims globally to share and learn together.',
+      end: true,
+    },
+    {
+      id: 'servicesResponse',
+      message: 'We offer community networking, events, and resources to support your faith journey.',
+      end: true,
+    },
+    {
+      id: 'contactResponse',
+      message: 'You can reach us via the Contact Us section below.',
+      end: true,
+    },
+    {
+      id: 'closeChat',
+      message: 'Goodbye! Feel free to open the chat anytime.',
+      end: true,
+    },
+    {
+      id: 'userInput',
+      message: `You said: ${userResponse}. How else can I help you?`,
+      trigger: 'options',
+    },
+  ];
+
+  const handleChatBotEnd = () => {
+    setIsChatBotOpen(false); // Close the chatbot when the conversation ends
+  };
+
+  const handleUserInput = (input) => {
+    setUserResponse(input); // Store user input for dynamic response
+    if (input.toLowerCase() === 'close') {
+      setIsChatBotOpen(false); // Close the chatbot if 'close' is typed
     }
   };
 
@@ -26,9 +78,9 @@ const Home = () => {
         </div>
         {/* Navigation links to each section */}
         <nav className="space-x-4">
-          <button onClick={() => scrollToSection("about")} className="hover:underline font-semibold">About Us</button>
-          <button onClick={() => scrollToSection("services")} className="hover:underline font-semibold">Our Services</button>
-          <button onClick={() => scrollToSection("contact")} className="hover:underline font-semibold">Contact Us</button>
+          <a href="#about" className="hover:underline font-semibold">About Us</a>
+          <a href="#services" className="hover:underline font-semibold">Our Services</a>
+          <a href="#contact" className="hover:underline font-semibold">Contact Us</a>
         </nav>
       </div>
 
@@ -50,14 +102,12 @@ const Home = () => {
         />
         <div
           ref={heroRef}
-          className={`relative z-10 flex flex-col items-center text-white text-center py-24 px-4 ${
-            heroInView ? 'animate-fade-in-up' : ''
-          }`}
+          className={`relative z-10 flex flex-col items-center text-white text-center py-24 px-4 ${heroInView ? 'animate-fade-in-up' : ''}`}
         >
           <h2 className="text-4xl font-bold mb-4 mt-20 tracking-wider">Welcome to Imaanify</h2>
           <p className="text-xl mb-6 font-light">Join our community and connect with Muslims globally.</p>
           <button
-            onClick={() => scrollToSection("waitingListForm")} // Remove the direct scroll function
+            onClick={() => document.getElementById("waitingListForm").scrollIntoView({ behavior: "smooth" })}
             className="mt-20 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition font-semibold"
           >
             Get Started
@@ -69,9 +119,7 @@ const Home = () => {
       <div
         id="about"
         ref={aboutRef}
-        className={`bg-custom-background p-8 text-white ${
-          aboutInView ? 'animate-fade-in-up' : ''
-        }`}
+        className={`bg-custom-background p-8 text-white ${aboutInView ? 'animate-fade-in-up' : ''}`}
       >
         <h2 className="text-center text-4xl font-bold mb-4 tracking-wide">About Us</h2>
         <p className="text-center text-xl mb-6 font-light leading-relaxed">
@@ -89,9 +137,7 @@ const Home = () => {
       <div
         id="services"
         ref={servicesRef}
-        className={`bg-custom-background text-center p-8 text-white ${
-          servicesInView ? 'animate-fade-in-up' : ''
-        }`}
+        className={`bg-custom-background text-center p-8 text-white ${servicesInView ? 'animate-fade-in-up' : ''}`}
       >
         <h2 className="text-4xl font-bold mb-4 tracking-wide">Our Services</h2>
         <p className="text-lg mb-6 font-light leading-relaxed">
@@ -108,9 +154,7 @@ const Home = () => {
       <div
         id="contact"
         ref={contactRef}
-        className={`relative h-screen items-center text-center text-white p-8 overflow-hidden ${
-          contactInView ? 'animate-fade-in-up' : ''
-        }`}
+        className={`relative h-screen items-center text-center text-white p-8 overflow-hidden ${contactInView ? 'animate-fade-in-up' : ''}`}
       >
         <video
           src={videoSrc2}
@@ -147,6 +191,23 @@ const Home = () => {
             </button>
           </form>
         </div>
+      </div>
+
+      {/* Chatbot Component */}
+      <div className="fixed bottom-5 right-5 z-50">
+        {isChatBotOpen ? (
+          <ChatBot
+            steps={steps}
+            handleEnd={handleChatBotEnd}
+            userInputHandler={handleUserInput} // Handle user input dynamically
+          />
+        ) : (
+          <FontAwesomeIcon
+            icon={faComments}
+            onClick={() => setIsChatBotOpen(true)}
+            className="text-white text-3xl bg-purple-600 p-3 rounded-full cursor-pointer hover:bg-blue-600 transition"
+          />
+        )}
       </div>
     </div>
   );
