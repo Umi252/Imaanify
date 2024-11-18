@@ -14,9 +14,60 @@ const Home = () => {
   const [contactRef, contactInView] = useInView({ triggerOnce: true });
 
   const [isChatBotOpen, setIsChatBotOpen] = useState(false);
-  const [userResponse, setUserResponse] = useState('');
+  const [userResponse, setUserResponse] = useState("");
 
-  // ... (rest of your component code)
+  const steps = [
+    {
+      id: '1',
+      message: 'Welcome to Imaanify! How can I help you today?',
+      trigger: 'options',
+    },
+    {
+      id: 'options',
+      options: [
+        { value: 'about', label: 'Tell me about Imaanify', trigger: 'aboutResponse' },
+        { value: 'services', label: 'What services do you offer?', trigger: 'servicesResponse' },
+        { value: 'contact', label: 'How can I contact you?', trigger: 'contactResponse' },
+        { value: 'close', label: 'Close Chatbot', trigger: 'closeChat' },
+      ],
+    },
+    {
+      id: 'aboutResponse',
+      message: 'Imaanify is a platform connecting Muslims globally to share and learn together.',
+      end: true,
+    },
+    {
+      id: 'servicesResponse',
+      message: 'We offer community networking, events, and resources to support your faith journey.',
+      end: true,
+    },
+    {
+      id: 'contactResponse',
+      message: 'You can reach us via the Contact Us section below.',
+      end: true,
+    },
+    {
+      id: 'closeChat',
+      message: 'Goodbye! Feel free to open the chat anytime.',
+      end: true,
+    },
+    {
+      id: 'userInput',
+      message: `You said: ${userResponse}. How else can I help you?`,
+      trigger: 'options',
+    },
+  ];
+
+  const handleChatBotEnd = () => {
+    setIsChatBotOpen(false); // Close the chatbot when the conversation ends
+  };
+
+  const handleUserInput = (input) => {
+    setUserResponse(input); // Store user input for dynamic response
+    if (input.toLowerCase() === 'close') {
+      setIsChatBotOpen(false); // Close the chatbot if 'close' is typed
+    }
+  };
 
   return (
     <div className="relative min-h-screen font-sans scroll-smooth">
@@ -27,9 +78,9 @@ const Home = () => {
         </div>
         {/* Navigation links to each section */}
         <nav className="space-x-4">
-          <a href="#about" className="hover:underline font-semibold">About Us</a>
-          <a href="#services" className="hover:underline font-semibold">Our Services</a>
-          <a href="#contact" className="hover:underline font-semibold">Contact Us</a>
+          <a href="about" className="hover:underline font-semibold">About Us</a>
+          <a href="services" className="hover:underline font-semibold">Our Services</a>
+          <a href="contact" className="hover:underline font-semibold">Contact Us</a>
         </nav>
       </div>
 
@@ -65,7 +116,11 @@ const Home = () => {
       </div>
 
       {/* About Section */}
-      <div id="about" ref={aboutRef} className={`bg-custom-background p-8 text-white ${aboutInView ? 'animate-fade-in-up' : ''}`}>
+      <div
+        id="about"
+        ref={aboutRef}
+        className={`bg-custom-background p-8 text-white ${aboutInView ? 'animate-fade-in-up' : ''}`}
+      >
         <h2 className="text-center text-4xl font-bold mb-4 tracking-wide">About Us</h2>
         <p className="text-center text-xl mb-6 font-light leading-relaxed">
           At Imaanify, our mission is to connect Muslims around the world. We believe in fostering community, sharing knowledge, and supporting each other in our faith journeys. Our platform is designed to be a welcoming space for all, offering tools and resources that empower individuals to engage with their community.
@@ -79,7 +134,11 @@ const Home = () => {
       </div>
 
       {/* Services Section */}
-      <div id="services" ref={servicesRef} className={`bg-custom-background text-center p-8 text-white ${servicesInView ? 'animate-fade-in-up' : ''}`}>
+      <div
+        id="services"
+        ref={servicesRef}
+        className={`bg-custom-background text-center p-8 text-white ${servicesInView ? 'animate-fade-in-up' : ''}`}
+      >
         <h2 className="text-4xl font-bold mb-4 tracking-wide">Our Services</h2>
         <p className="text-lg mb-6 font-light leading-relaxed">
           At Imaanify, we offer a range of services designed to connect and support our community.
@@ -92,7 +151,11 @@ const Home = () => {
       </div>
 
       {/* Contact Section */}
-      <div id="contact" ref={contactRef} className={`relative h-screen items-center text-center text-white p-8 overflow-hidden ${contactInView ? 'animate-fade-in-up' : ''}`}>
+      <div
+        id="contact"
+        ref={contactRef}
+        className={`relative h-screen items-center text-center text-white p-8 overflow-hidden ${contactInView ? 'animate-fade-in-up' : ''}`}
+      >
         <video
           src={videoSrc2}
           autoPlay
