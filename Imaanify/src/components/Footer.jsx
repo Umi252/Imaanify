@@ -5,7 +5,7 @@ import { faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-blue-900 via-purple-700 via-pink-600 to-red-600 to-yellow-400 p-4 text-white text-center">
+    <footer className="bg-gradient-to-r from-blue-700 via-purple-500 via-pink-700 to-red-700 to-yellow-100 p-4 text-white text-center">
       <p className="text-sm sm:text-base mb-2">&copy; 2024 Imaanify. All rights reserved.</p>
       <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start mt-2">
         <p className="font-medium text-xl text-center sm:text-left sm:mr-4 mb-2 sm:mb-0 animate-marquee">Stay Connected with Imaanify!</p>
@@ -18,7 +18,7 @@ const Footer = () => {
             aria-label="Instagram"
             className="hover:text-pink-500 transition-colors"
           >
-            <FontAwesomeIcon icon={faInstagram} size="2x" />
+            <FontAwesomeIcon icon={faInstagram} size="4x" />
           </a>
           {/* Facebook */}
           <a
@@ -28,7 +28,7 @@ const Footer = () => {
             aria-label="Facebook"
             className="hover:text-blue-500 transition-colors"
           >
-            <FontAwesomeIcon icon={faFacebook} size="2x" />
+            <FontAwesomeIcon icon={faFacebook} size="4x" />
           </a>
           {/* WhatsApp */}
           <a
@@ -38,7 +38,7 @@ const Footer = () => {
             aria-label="WhatsApp"
             className="hover:text-green-500 transition-colors"
           >
-            <FontAwesomeIcon icon={faWhatsapp} size="2x" />
+            <FontAwesomeIcon icon={faWhatsapp} size="4x" />
           </a>
           {/* Email */}
           <a
@@ -46,7 +46,7 @@ const Footer = () => {
             aria-label="Email"
             className="hover:text-red-500 transition-colors"
           >
-            <FontAwesomeIcon icon={faEnvelope} size="2x" />
+            <FontAwesomeIcon icon={faEnvelope} size="4x" />
           </a>
           {/* Phone */}
           <a
@@ -54,8 +54,8 @@ const Footer = () => {
             aria-label="Phone"
             className="hover:text-yellow-500 transition-colors flex items-center space-x-2"
           >
-            <FontAwesomeIcon icon={faPhone} size="2x" />
-            <span className="text-lg font-medium text-white">+27 751 814 881</span>
+            <FontAwesomeIcon icon={faPhone} size="4x" />
+            <span className="text-lg font-medium text-white"></span>
           </a>
         </div>
       </div>
