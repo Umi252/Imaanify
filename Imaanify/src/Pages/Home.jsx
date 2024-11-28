@@ -54,7 +54,7 @@ const Home = () => {
           ref={heroRef}
           className={`relative z-10 flex flex-col items-center text-white text-center py-24 px-4 ${heroInView ? 'animate-fade-in-up' : ''}`}
         >
-          <h2 className="font-poppins text-4xl font-bold tracking-wide">
+          <h2 className="font-poppins text-4xl font-bold tracking-wide mb-5">
             Welcome to Imaanify
           </h2>
           <p className="font-roboto text-xl font-light">
@@ -140,15 +140,15 @@ const Home = () => {
           <h2 className="text-4xl font-bold mb-20 tracking-wide">What Makes Imaanify Special?</h2>
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold mb-20"> Grow in Faith</h3>
+              <h3 className="text-2xl font-bold mb-10"> Grow in Faith</h3>
               <p className="text-lg font-light">Strengthen your Imaan with access to accurate Islamic knowledge and supportive community connections.</p>
             </div>
             <div>
-              <h3 className="text-2xl font-bold mb-20"> Connect Globally</h3>
+              <h3 className="text-2xl font-bold mb-10"> Connect Globally</h3>
               <p className="text-lg font-light">Engage with Muslims worldwide, share your experiences, and learn from diverse perspectives.</p>
             </div>
             <div>
-              <h3 className="text-2xl font-bold mb-20"> Experience Innovation</h3>
+              <h3 className="text-2xl font-bold mb-10"> Experience Innovation</h3>
               <p className="text-lg font-light">Discover an app tailored to your lifestyle, blending cutting-edge technology with core Islamic values.</p>
             </div>
           </div>
