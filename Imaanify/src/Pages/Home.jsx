@@ -6,12 +6,16 @@ import videoSrc from '../assets/vi.mp4';
 import videoSrc2 from '../assets/ContactBg.mp4';
 import favivon from '../assets/Imaanify.png';
 import ChatBotComponent from "../components/ChatBotComponent";
+import { faList, faClipboardList } from '@fortawesome/free-solid-svg-icons';
+
 
 const Home = () => {
   const [heroRef, heroInView] = useInView({ triggerOnce: true });
   const [aboutRef, aboutInView] = useInView({ triggerOnce: true });
-  const [servicesRef, servicesInView] = useInView({ triggerOnce: true });
+  const [whyImaanifyRef, whyImaanifyInView] = useInView({ triggerOnce: true });
+  const [whatMakesImaanifyRef, whatMakesImaanifyInView] = useInView({ triggerOnce: true });
   const [contactRef, contactInView] = useInView({ triggerOnce: true });
+  const [faqRef, faqInView] = useInView({ triggerOnce: true });
 
   return (
     <div className="relative min-h-screen font-sans scroll-smooth">
@@ -23,8 +27,10 @@ const Home = () => {
         {/* Navigation links to each section */}
         <nav className="space-x-4">
           <a href="#about" className="hover:underline font-semibold"></a>
-          <a href="#services" className="hover:underline font-semibold"></a>
+          <a href="#why-imaanify" className="hover:underline font-semibold"></a>
+          <a href="#what-makes-imaanify-special" className="hover:underline font-semibold"></a>
           <a href="#contact" className="hover:underline font-semibold"></a>
+          <a href="#faq" className="hover:underline font-semibold"></a>
         </nav>
       </div>
 
@@ -63,9 +69,95 @@ const Home = () => {
         </div>
       </div>
 
-      {/* About Section with Video Background */}
+      {/* Why Imaanify Section */}
       <div
-        id="about"
+        id="why-imaanify"
+        ref={whyImaanifyRef}
+        className={`relative h-screen items-center text-center text-white p-8 overflow-hidden ${whyImaanifyInView ? 'animate-fade-in-up' : ''}`}
+      >
+        <video
+          src={videoSrc2}
+          autoPlay
+          loop
+          muted
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        />
+        <div className="relative z-10">
+          <h2 className="text-4xl font-bold mb-4 tracking-wide">Why Imaanify? Your Faith. Your Community. One Platform.</h2>
+          <ul className="list-none grid grid-cols-1 md:grid-cols-2 gap-6 text-lg font-light">
+            <li className="flex items-center mb-4">
+              <FontAwesomeIcon icon={faComments} className="mr-4 text-3xl" />
+              <span>Faith-Based AI Chatbot: Ask questions about Islam and get reliable, insightful answers.</span>
+            </li>
+            <li className="flex items-center mb-4">
+              <FontAwesomeIcon icon={faComments} className="mr-4 text-3xl" />
+              <span>Global Muslim Community: Chat and connect with Muslims from all over the world.</span>
+            </li>
+            <li className="flex items-center mb-4">
+              <FontAwesomeIcon icon={faComments} className="mr-4 text-3xl" />
+              <span>Privacy & Comfort: Dedicated sections for men and women.</span>
+            </li>
+            <li className="flex items-center mb-4">
+              <FontAwesomeIcon icon={faComments} className="mr-4 text-3xl" />
+              <span>Diverse Topics: Engage in discussions on business, arts, cooking, sports, and more—all aligned with Islamic values.</span>
+            </li>
+            <li className="flex items-center mb-4">
+              <FontAwesomeIcon icon={faComments} className="mr-4 text-3xl" />
+              <span>Accessible to All: Designed for lifelong Muslims and new reverts alike.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* What Makes Imaanify Special Section */}
+      <div
+        id="what-makes-imaanify-special"
+        ref={whatMakesImaanifyRef}
+        className={`relative h-screen items-center text-center text-white p-8 overflow-hidden ${whatMakesImaanifyInView ? 'animate-fade-in-up' : ''}`}
+      >
+        <video
+          src={videoSrc2}
+          autoPlay
+          loop
+          muted
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+          }}
+        />
+        <div className="relative z-10">
+          <h2 className="text-4xl font-bold mb-4 tracking-wide">What Makes Imaanify Special?</h2>
+          <div className="space-y-8">
+            <div>
+              <h3 className="text-2xl font-bold mb-2"> Grow in Faith</h3>
+              <p className="text-lg font-light">Strengthen your Imaan with access to accurate Islamic knowledge and supportive community connections.</p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-2"> Connect Globally</h3>
+              <p className="text-lg font-light">Engage with Muslims worldwide, share your experiences, and learn from diverse perspectives.</p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-2"> Experience Innovation</h3>
+              <p className="text-lg font-light">Discover an app tailored to your lifestyle, blending cutting-edge technology with core Islamic values.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* About Us Section */}
+      <div
+        id="about-us"
         ref={aboutRef}
         className={`relative h-screen items-center text-center text-white p-8 overflow-hidden ${aboutInView ? 'animate-fade-in-up' : ''}`}
       >
@@ -85,77 +177,20 @@ const Home = () => {
         />
         <div className="relative z-10">
           <h2 className="text-4xl font-bold mb-4 tracking-wide">About Us</h2>
-          <p className="text-center text-xl mb-6 font-light leading-relaxed">
-            Imaanify is a platform designed to bring Muslims closer to their faith and to each other. Our vision is to create a space where the global Muslim community can thrive—sharing experiences, learning together, and building bonds that transcend borders.
-            <br /><br />
-            We are passionate about empowering Muslims worldwide by providing tools to engage with Islamic knowledge, explore meaningful discussions, and connect with like-minded individuals. From reverts discovering the beauty of Islam to lifelong believers seeking deeper connections, Imaanify is for everyone.
-            <br /><br />
-            Discover. Connect. Thrive—with Imaanify.
-          </p>
-          <h3 className="text-2xl font-semibold my-4 text-center tracking-wide">Our Values</h3>
-          <p className="text-center text-xl mb-6 font-light leading-relaxed">
-            <strong className="font-bold">What Makes Imaanify Special?</strong>
-          </p>
-          <ul className="list-decimal list-inside mb-6 text-center text-lg font-light">
-            <li className="mb-4">
-              <strong className="font-bold">Grow in Faith</strong>
-              <p>“Strengthen your Imaan with access to accurate Islamic knowledge and supportive community connections.”</p>
-            </li>
-            <li className="mb-4">
-              <strong className="font-bold">Connect Globally</strong>
-              <p>“Engage with Muslims worldwide, share your experiences, and learn from diverse perspectives.”</p>
-            </li>
-            <li className="mb-4">
-              <strong className="font-bold">Experience Innovation</strong>
-              <p>“Discover an app tailored to your lifestyle, blending cutting-edge technology with core Islamic values.”</p>
-            </li>
-          </ul>
-          <ul className="list-disc list-inside mb-4 text-center mx-auto max-w-xl font-light text-lg">
-            <li className="mb-2">Community: Building a strong support network for Muslims everywhere.</li>
-            <li className="mb-2">Inclusivity: Welcoming individuals from all backgrounds and experiences.</li>
-            <li className="mb-2">Empowerment: Providing resources and tools for personal growth and connection.</li>
-          </ul>
-        </div>
-      </div>
-
-      {/* Services Section */}
-      <div
-        id="services"
-        ref={servicesRef}
-        className={`relative h-screen items-center text-center text-white p-8 overflow-hidden ${servicesInView ? 'animate-fade-in-up' : ''}`}
-      >
-        <video
-          src={videoSrc2}
-          autoPlay
-          loop
-          muted
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-          }}
-        />
-        <div className="relative z-10">
-          <h2 className="text-4xl font-bold mb-4 tracking-wide">Our Services</h2>
           <p className="text-lg mb-6 font-light leading-relaxed">
-            At Imaanify, we offer a range of services designed to connect and support our community.
+            Imaanify is a platform designed to bring Muslims closer to their faith and to each other. Our vision is to create a space where the global Muslim community can thrive—sharing experiences, learning together, and building bonds that transcend borders.
           </p>
-          <ul className="list-disc list-inside mb-4 font-light text-lg">
-            <li className="mb-2">Community Networking: Connect with fellow Muslims.</li>
-            <li className="mb-2">Events and Workshops: Participate in community events.</li>
-            <li className="mb-2">Resource Sharing: Access educational materials and resources.</li>
-          </ul>
+          <p className="text-lg mb-6 font-light leading-relaxed">
+            We are passionate about empowering Muslims worldwide by providing tools to engage with Islamic knowledge, explore meaningful discussions, and connect with like-minded individuals. From reverts discovering the faith to lifelong Muslims seeking community, Imaanify offers something for everyone.
+          </p>
         </div>
       </div>
 
-      {/* Contact Section */}
+      {/* FAQs Section */}
       <div
-        id="contact"
-        ref={contactRef}
-        className={`relative h-screen items-center text-center text-white p-8 overflow-hidden ${contactInView ? 'animate-fade-in-up' : ''}`}
+        id="faq"
+        ref={faqRef}
+        className={`relative h-screen items-center text-center text-white p-8 overflow-hidden ${faqInView ? 'animate-fade-in-up' : ''}`}
       >
         <video
           src={videoSrc2}
@@ -172,24 +207,103 @@ const Home = () => {
           }}
         />
         <div className="relative z-10">
-          <h2 className="text-4xl font-bold mb-4 tracking-wide">Contact Us</h2>
-          <form id="waitingListForm" className="bg-black p-4 rounded shadow-md max-w-md mx-auto">
-            <div className="mb-4">
-              <label className="block mb-2 text-white font-semibold" htmlFor="name">Name:</label>
-              <input className="border p-2 w-full text-black" type="text" id="name" required />
+          <h2 className="text-4xl font-bold mb-4 tracking-wide">Got Questions? We’ve Got Answers!</h2>
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-2xl font-semibold mb-2"> What is Imaanify?</h3>
+              <p className="text-lg">Imaanify is a global platform designed to connect Muslims worldwide through faith-based discussions, a private chat community, and innovative AI features.</p>
             </div>
-            <div className="mb-4">
-              <label className="block mb-2 text-white font-semibold" htmlFor="email">Email:</label>
-              <input className="border p-2 w-full text-black" type="email" id="email" required />
+            <div>
+              <h3 className="text-2xl font-semibold mb-2"> Is Imaanify free?</h3>
+              <p className="text-lg">Yes, Imaanify offers free basic features with premium upgrades for additional functionality.</p>
             </div>
-            <div className="mb-4">
-              <label className="block mb-2 text-white font-semibold" htmlFor="message">Message:</label>
-              <textarea className="border p-2 w-full text-black" id="message" required></textarea>
+            <div>
+              <h3 className="text-2xl font-semibold mb-2"> When will Imaanify launch?</h3>
+              <p className="text-lg">We’re working hard to deliver the best experience. Sign up now to get early access when we launch.</p>
             </div>
-            <button type="submit" className="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition font-semibold">Submit</button>
-          </form>
+            <div>
+              <h3 className="text-2xl font-semibold mb-2"> Who is Imaanify for?</h3>
+              <p className="text-lg">Imaanify is for all Muslims—whether you’re a new revert or a lifelong believer—seeking community, knowledge, and connection.</p>
+            </div>
+          </div>
         </div>
       </div>
+
+      <div
+  id="contact"
+  ref={contactRef}
+  className={`relative h-screen items-center text-center text-white p-8 overflow-hidden ${contactInView ? 'animate-fade-in-up' : ''}`}
+>
+  <video
+    src={videoSrc2}
+    autoPlay
+    loop
+    muted
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+    }}
+  />
+  <div className="relative z-10">
+    <h2 className="text-4xl font-bold mb-4 tracking-wide">Contact Us</h2>
+
+    {/* Newsletter Subscription Form */}
+    <div className="bg-black p-8 rounded-lg shadow-lg max-w-md mx-auto mb-6 transition-transform transform hover:scale-105 duration-300 ease-in-out">
+      <h3 className="text-2xl font-semibold mb-4">Stay Updated with Our Newsletter</h3>
+      <p className="text-lg mb-4 font-light">
+        Subscribe to our newsletter for the latest updates, news, and announcements.
+      </p>
+      <form
+        action="https://forms.gle/Eyk21KgPRHcyzY586"
+        method="get"
+        target="_blank"
+        className="flex flex-col space-y-4"
+      >
+        <input
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+          className="border-2 border-gray-300 p-3 w-full text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 transition duration-200"
+        />
+        <button
+          type="submit"
+          className="bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105 duration-200 ease-in-out font-semibold"
+        >
+          Subscribe
+        </button>
+      </form>
+    </div>
+
+    {/* Additional Links with Icons */}
+    <div className="text-lg font-light space-y-4">
+      <p className="flex items-center space-x-3">
+        <FontAwesomeIcon icon={faList} className="text-7xl text-blue-300" />
+        <a
+          href="https://forms.gle/Eyk21KgPRHcyzY586"
+          target="_blank"
+          className="underline text-blue-300 hover:text-blue-500"
+        >
+          Join Our Waiting List
+        </a>
+      </p>
+      <p className="flex items-center space-x-3">
+        <FontAwesomeIcon icon={faClipboardList} className="text-7xl text-blue-300" />
+        <a
+          href="https://forms.gle/eHYaczwbZ1oJyyG27"
+          target="_blank"
+          className="underline text-blue-300 hover:text-blue-500"
+        >
+          Take Our Survey
+        </a>
+      </p>
+    </div>
+  </div>
+</div>
 
       {/* ChatBot Section */}
       <div className="fixed bottom-10 right-10 z-50">
