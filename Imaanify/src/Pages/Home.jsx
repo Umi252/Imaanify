@@ -90,26 +90,26 @@ const Home = () => {
           }}
         />
         <div className="relative z-10">
-          <h2 className="text-4xl font-bold mb-4 tracking-wide">Why Imaanify? Your Faith. Your Community. One Platform.</h2>
-          <ul className="list-none grid grid-cols-1 md:grid-cols-2 gap-6 text-lg font-light">
+          <h2 className="text-4xl font-bold mb-20 tracking-wide">Why Imaanify? Your Faith. Your Community. One Platform.</h2>
+          <ul className="list-none grid grid-cols-1 md:grid-cols-2 gap-9 text-lg font-light">
             <li className="flex items-center mb-4">
-              <FontAwesomeIcon icon={faComments} className="mr-4 text-3xl" />
+              <FontAwesomeIcon icon={faComments} className="mr-4 text-5xl" />
               <span>Faith-Based AI Chatbot: Ask questions about Islam and get reliable, insightful answers.</span>
             </li>
             <li className="flex items-center mb-4">
-              <FontAwesomeIcon icon={faComments} className="mr-4 text-3xl" />
+              <FontAwesomeIcon icon={faComments} className="mr-4 text-5xl" />
               <span>Global Muslim Community: Chat and connect with Muslims from all over the world.</span>
             </li>
             <li className="flex items-center mb-4">
-              <FontAwesomeIcon icon={faComments} className="mr-4 text-3xl" />
-              <span>Privacy & Comfort: Dedicated sections for men and women.</span>
+              <FontAwesomeIcon icon={faComments} className="mr-4 text-5xl" />
+              <span>  Privacy & Comfort: Dedicated sections for men and women.</span>
             </li>
             <li className="flex items-center mb-4">
-              <FontAwesomeIcon icon={faComments} className="mr-4 text-3xl" />
+              <FontAwesomeIcon icon={faComments} className="mr-4 text-5xl" />
               <span>Diverse Topics: Engage in discussions on business, arts, cooking, sports, and more—all aligned with Islamic values.</span>
             </li>
             <li className="flex items-center mb-4">
-              <FontAwesomeIcon icon={faComments} className="mr-4 text-3xl" />
+              <FontAwesomeIcon icon={faComments} className="mr-4 text-5xl" />
               <span>Accessible to All: Designed for lifelong Muslims and new reverts alike.</span>
             </li>
           </ul>
@@ -137,18 +137,18 @@ const Home = () => {
           }}
         />
         <div className="relative z-10">
-          <h2 className="text-4xl font-bold mb-4 tracking-wide">What Makes Imaanify Special?</h2>
+          <h2 className="text-4xl font-bold mb-20 tracking-wide">What Makes Imaanify Special?</h2>
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold mb-2"> Grow in Faith</h3>
+              <h3 className="text-2xl font-bold mb-20"> Grow in Faith</h3>
               <p className="text-lg font-light">Strengthen your Imaan with access to accurate Islamic knowledge and supportive community connections.</p>
             </div>
             <div>
-              <h3 className="text-2xl font-bold mb-2"> Connect Globally</h3>
+              <h3 className="text-2xl font-bold mb-20"> Connect Globally</h3>
               <p className="text-lg font-light">Engage with Muslims worldwide, share your experiences, and learn from diverse perspectives.</p>
             </div>
             <div>
-              <h3 className="text-2xl font-bold mb-2"> Experience Innovation</h3>
+              <h3 className="text-2xl font-bold mb-20"> Experience Innovation</h3>
               <p className="text-lg font-light">Discover an app tailored to your lifestyle, blending cutting-edge technology with core Islamic values.</p>
             </div>
           </div>
@@ -176,7 +176,7 @@ const Home = () => {
           }}
         />
         <div className="relative z-10">
-          <h2 className="text-4xl font-bold mb-4 tracking-wide">About Us</h2>
+          <h2 className="text-4xl font-bold mb-20 tracking-wide">About Us</h2>
           <p className="text-lg mb-6 font-light leading-relaxed">
             Imaanify is a platform designed to bring Muslims closer to their faith and to each other. Our vision is to create a space where the global Muslim community can thrive—sharing experiences, learning together, and building bonds that transcend borders.
           </p>
@@ -207,22 +207,22 @@ const Home = () => {
           }}
         />
         <div className="relative z-10">
-          <h2 className="text-4xl font-bold mb-4 tracking-wide">Got Questions? We’ve Got Answers!</h2>
+          <h2 className="text-4xl font-bold mb-20 tracking-wide">Got Questions? We’ve Got Answers!</h2>
           <div className="space-y-6">
             <div>
-              <h3 className="text-2xl font-semibold mb-2"> What is Imaanify?</h3>
+              <h3 className="text-2xl font-semibold mb-10"> What is Imaanify?</h3>
               <p className="text-lg">Imaanify is a global platform designed to connect Muslims worldwide through faith-based discussions, a private chat community, and innovative AI features.</p>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold mb-2"> Is Imaanify free?</h3>
+              <h3 className="text-2xl font-semibold mb-100"> Is Imaanify free?</h3>
               <p className="text-lg">Yes, Imaanify offers free basic features with premium upgrades for additional functionality.</p>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold mb-2"> When will Imaanify launch?</h3>
+              <h3 className="text-2xl font-semibold mb-10"> When will Imaanify launch?</h3>
               <p className="text-lg">We’re working hard to deliver the best experience. Sign up now to get early access when we launch.</p>
             </div>
             <div>
-              <h3 className="text-2xl font-semibold mb-2"> Who is Imaanify for?</h3>
+              <h3 className="text-2xl font-semibold mb-10"> Who is Imaanify for?</h3>
               <p className="text-lg">Imaanify is for all Muslims—whether you’re a new revert or a lifelong believer—seeking community, knowledge, and connection.</p>
             </div>
           </div>
