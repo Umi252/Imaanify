@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="stars"></div>
 
       <p className="text-sm sm:text-base mb-2 relative z-10">
-        &copy; 2024 Imaanify. All rights reserved.
+        &copy; 2025 Imaanify. All rights reserved.
       </p>
 
       {/* Floating crescent moon */}

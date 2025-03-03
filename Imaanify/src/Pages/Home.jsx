@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faComments } from '@fortawesome/free-solid-svg-icons';
 import videoSrc from '../assets/vi.mp4';
 import videoSrc2 from '../assets/ContactBg.mp4';
-import favivon from '../assets/Imaanify.png';
+import favicon from '../assets/Imaanify.png';
 import ChatBotComponent from "../components/ChatBotComponent";
 import { faList, faClipboardList } from '@fortawesome/free-solid-svg-icons';
 
@@ -22,7 +22,7 @@ const Home = () => {
       {/* Transparent Header positioned absolutely on top of the video */}
       <div className="absolute top-0 left-0 w-full flex justify-between items-center p-4 text-white z-10">
         <div className="tracking-wide">
-          <img src={favivon} alt="Logo" className="h-20 w-auto mr-2" />
+          <img src={favicon} alt="Logo" className="h-20 w-auto mr-2" />
         </div>
         {/* Navigation links to each section */}
         <nav className="space-x-4">
